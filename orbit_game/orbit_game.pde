@@ -33,7 +33,7 @@ color planetColor=color(100);
 
 void setup() {
   frameRate(60);
-  size(500, 1000);
+  size(1000, 2000);
   background(0);
   rx=width/2;
   ry=height*3/4;
@@ -73,7 +73,7 @@ void draw() {
     if (sqrt(sq(planet.x-rx)+sq(planet.y-ry-scroll))<fuelRadius) {
       if (fuel<1) {
         fuel+=refuelRate;
-      }
+      }  
       planet.c=color(red(planetColor)*.8, green(planetColor)*1.6, blue(planetColor)*.8);
     } else {
       planet.c=planetColor;
@@ -83,6 +83,14 @@ void draw() {
   rvy+=ay;
   rx+=rvx;
   ry+=rvy;
+
+if (rx>width+50) {
+    rx=-50;
+  }
+
+  if (rx<-50) {
+    rx=width+50;
+  }
 
   if (ry<height/2) {
     scroll-=height/2-ry;
@@ -113,7 +121,16 @@ void draw() {
     pvx+=5*ax;
     pvy+=5*ay;
     px+=5*pvx;
-    py+=5*pvy;
+    py+=5*pvy; 
+    
+  if (px>width+50) {
+    px=-50;
+  }
+
+  if (px<-50) {
+    px=width+50;
+  }  
+    
     ellipse(px, py, 2, 2);
   }
 
