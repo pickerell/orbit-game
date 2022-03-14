@@ -33,7 +33,7 @@ color planetColor=color(100);
 
 void setup() {
   frameRate(60);
-  size(1000, 2000);
+  size(1500, 2000);
   background(0);
   rx=width/2;
   ry=height*3/4;
